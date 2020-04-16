@@ -14,13 +14,13 @@ kubectl apply -f metrics-server/deploy/kubernetes/
 kubectl apply -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/cluster-agent/rbac/rbac-agent.yaml"
 kubectl apply -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/cluster-agent/rbac/rbac-cluster-agent.yaml"
 kubectl create -f dca-secret.yaml
-kubectl create secret generic datadog-secret --from-literal api-key="127b3bdc7ea5d8e92c2f14694378b0c9"
+kubectl create secret generic datadog-secret --from-literal api-key="xx"
 kubectl apply -f cluster-agent.yaml
 kubectl apply -f datadog-cluster-agent_service.yaml
 kubectl apply -f rbac-agent.yaml
 kubectl apply -f datadog-agent-all-features.yml
 
-kubectl create secret generic datadog-secret-app --from-literal app-key="35f35db9cf21ce17d9dfa4a044aa03c20160eb4b"
+kubectl create secret generic datadog-secret-app --from-literal app-key="xx"
 
 # Monitoring control plan.
 # Kube APIserver scheduler are autodiscovered
