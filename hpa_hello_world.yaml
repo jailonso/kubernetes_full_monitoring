@@ -1,0 +1,19 @@
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: cpu-ext
+spec:
+  minReplicas: 1
+  maxReplicas: 3
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: hello-minikube
+  metrics:
+  - type: External
+    external:
+      metricName: kubernetes.cpu.usage.total
+      metricSelector:
+        matchLabels:
+            kube_container_name: echoserver
+      targetAverageValue: 200000
